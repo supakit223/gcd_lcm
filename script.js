@@ -42,6 +42,9 @@ const showNumber = () => {
     }else{         
         document.getElementById("showNumber").innerHTML = ""
         document.getElementById("alert_input1").innerHTML = validity_input1.validationMessage
+        
+        document.getElementById(`output1`).innerHTML = ""
+        document.getElementById(`output2`).innerHTML = ""
     }
 }
 function input1_show() {
@@ -73,17 +76,23 @@ function showResult() {
         if (validity_input.checkValidity()) {        
             document.getElementById(`alert_input${i+1}`).innerHTML = ""                    
             let string = ""
-            for(let i=0 ; i<inputGroup.length ; i++){
-                string += `
-                    ${inputGroup[i]} ,
-                `
-            }
-            document.getElementById("output1").innerHTML = string         
+            for(let j=1 ; j<=inputGroup.length ; j++){                
+                if (j < inputGroup.length) {
+                    string += `${inputGroup[j-1]} , `
+                } else {
+                    string += `${inputGroup[j-1]}`
+                }                
+            } 
+            const gcd = euclid_gcd_many(inputGroup)
+            const lcm = euclid_lcm_many(inputGroup)
+            document.getElementById("output1").innerHTML = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตัวหารร่วมมาก (ห.ร.ม.) ของ ${string}  คือ  ${gcd}`
+            document.getElementById("output2").innerHTML = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตัวคูณร่วมน้อย (ค.ร.น.) ของ ${string}  คือ  ${lcm}`                       
         }else{          
             document.getElementById(`alert_input${i+1}`).innerHTML = validity_input.validationMessage
             document.getElementById(`output1`).innerHTML = ""
+            document.getElementById(`output2`).innerHTML = ""
         }        
-    }   
+    }       
 }
 // number_many = [2,3,5,7,210]
 // console.log(euclid_gcd_many(number_many))
