@@ -14,26 +14,26 @@
 <body>             
     <div class="container">
         <div class="mt-3 mb-3 d-flex align-content-center justify-content-center">
-            <label class="p-2 fw-bold head1">จำนวนเฉพาะ</label>                  
-        </div>
-        <div class="mt-3 mb-3 d-flex align-content-center justify-content-center">
-            <label class="p-2 head2">
-                <p1 class="fw-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;จำนวนเฉพาะ</p1> 
-                <p2 >คือ จำนวนนับที่มากกว่า 1 และมีตัวประกอบเพียง 2 ตัว คือ 1 และ ตัวมันเอง</p2>
-            </label>                  
-        </div>
-        <!-- test prime -->
+            <label class="p-2 fw-bold head1">ห.ร.ม. และ ค.ร.น.</label>                  
+        </div>        
+        <!-- input -->
         <div class="mb-1 border border-1 border-primary">
             <div class="mt-3 d-flex align-content-center justify-content-center">
-                <input id="input1" class="p-1 mx-2 input" type="number" min="2" max="1000000" required placeholder="2 - 1000000">
-                <label class="p-1">เป็นจำนวนเฉพาะหรือไม่?</label>
+                <label class="p-1">จำนวนนับ</label>
+                <input id="input1" class="p-1 mx-2 input" oninput="showNumber()" type="number" min="2" max="10" required placeholder="2 - 10">
+                <label class="p-1">จำนวน</label>
             </div>
             <div>
-                <small id="alert1" class="invisible mb-2 text-danger d-flex align-content-center justify-content-center"></small>
+                <small id="alert_input1" class="mb-2 text-danger d-flex align-content-center justify-content-center"></small>
             </div>
-            <div class="mt-1 mb-2 d-flex align-content-center justify-content-center">
-                <button class="btn btn-outline-success" onclick="cal1()" type="submit button">ทดสอบ</button>                
-            </div>
+            <!-- แสดงช่องกรอกจำนวน -->
+            <div id="showNumber" class="mb-2">
+                <!-- ส่งมาจากฝั่ง js -->                    
+            </div>             
+        </div>        
+        <div class="mt-1 mb-2 d-flex align-content-center justify-content-center">
+            <button class="btn btn-success" onclick="cal1()" type="submit button">แสดง ห.ร.ม. และ ค.ร.น.</button>
+            <button class="mx-1 btn btn-danger" onclick="resetPage()">ล้างข้อมูลทั้งหมด</button>                
         </div>
         <!-- output -->
         <div class="mb-2 d-flex align-content-center justify-content-center">
