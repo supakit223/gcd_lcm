@@ -50,14 +50,40 @@ function input1_show() {
     let showInput = ""
     for(let i=1 ; i<=input1_value ; i++){
         showInput +=  `
-        <div class="mt-2 d-flex align-content-center justify-content-center">
+        <div class="mt-1 d-flex align-content-center justify-content-center">
             <label class="p-1">จำนวนที่ ${i}</label>
-            <input id="input${i+1}" class="p-1 mx-2 input" type="number" min="1" max="1000" required placeholder="1 - 1000">                    
+            <input id="input${i+1}" class="p-1 mx-2 input" type="number" min="1" max="1000" required placeholder="1 - 1000">                                
         </div> 
+        <div class="d-flex align-content-center justify-content-center">
+            <small id="alert_input${i+1}" class="mb-1 text-danger d-flex align-content-center justify-content-center"></small>
+        </div>        
         `
-    }
-    
+    }    
     document.getElementById("showNumber").innerHTML = `${showInput}`
+}
+function showResult() {
+    const input1_value = document.getElementById("input1").value
+    let inputGroup = [] 
+    for(let i=1 ; i<=input1_value ; i++){
+        // ใส่ตัวเลขจาก input1 เข้าไปใน array
+        let inputGroup_value = document.getElementById(`input${i+1}`).value
+        inputGroup.push(inputGroup_value)
+
+        let validity_input = document.getElementById(`input${i+1}`)
+        if (validity_input.checkValidity()) {        
+            document.getElementById(`alert_input${i+1}`).innerHTML = ""                    
+            let string = ""
+            for(let i=0 ; i<inputGroup.length ; i++){
+                string += `
+                    ${inputGroup[i]} ,
+                `
+            }
+            document.getElementById("output1").innerHTML = string         
+        }else{          
+            document.getElementById(`alert_input${i+1}`).innerHTML = validity_input.validationMessage
+            document.getElementById(`output1`).innerHTML = ""
+        }        
+    }   
 }
 // number_many = [2,3,5,7,210]
 // console.log(euclid_gcd_many(number_many))
