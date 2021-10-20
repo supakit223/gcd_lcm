@@ -61,10 +61,16 @@ function input1_show() {
         </div> 
         <div class="d-flex align-content-center justify-content-center">
             <small id="alert_input${i+1}" class="mb-1 text-danger d-flex align-content-center justify-content-center"></small>
-        </div>        
+        </div>            
         `
     }    
-    document.getElementById("showNumber").innerHTML = `${showInput}`
+    document.getElementById("showNumber").innerHTML 
+    = `
+    ${showInput}
+    <div class="mt-2 mb-2 d-flex align-content-center justify-content-center">
+        <button class="btn btn-success" onclick="showResult()" type="submit button">แสดง ห.ร.ม. และ ค.ร.น.</button>                        
+    </div>    
+    `
 }
 function showResult() {
     const input1_value = document.getElementById("input1").value
