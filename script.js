@@ -99,8 +99,8 @@ function showResult() {
             document.getElementById("output1").classList.add("visible")   
             document.getElementById("output2").classList.remove("invisible")
             document.getElementById("output2").classList.add("visible") 
-            document.getElementById("output1").innerHTML = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตัวหารร่วมมาก (ห.ร.ม.) ของ ${string}  คือ  <font>${gcd}</font>`
-            document.getElementById("output2").innerHTML = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตัวคูณร่วมน้อย (ค.ร.น.) ของ ${string}  คือ  <font>${lcm}</font>`                       
+            document.getElementById("output1").innerHTML = ` ตัวหารร่วมมาก (ห.ร.ม.) ของ ${string}  คือ  <font>${gcd}</font>`
+            document.getElementById("output2").innerHTML = ` ตัวคูณร่วมน้อย (ค.ร.น.) ของ ${string}  คือ  <font>${lcm}</font>`                       
         }else{          
             document.getElementById(`alert_input${i+1}`).innerHTML = validity_input.validationMessage
             document.getElementById("output1").classList.remove("visible")
