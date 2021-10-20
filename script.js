@@ -68,16 +68,18 @@ function input1_show() {
 }
 function showResult() {
     const input1_value = document.getElementById("input1").value
-    let inputGroup = [] 
+    let inputGroup = []
+    let count = 0 
     for(let i=1 ; i<=input1_value ; i++){
         // ใส่ตัวเลขจาก input1 เข้าไปใน array
         let inputGroup_value = document.getElementById(`input${i+1}`).value
         inputGroup.push(inputGroup_value)
-
+        
         let validity_input = document.getElementById(`input${i+1}`)
-        if (validity_input.checkValidity()) {        
+        if (validity_input.checkValidity()) {
+            count++        
             document.getElementById(`alert_input${i+1}`).innerHTML = ""                    
-            let string = ""
+            let string = ""            
             for(let j=1 ; j<=inputGroup.length ; j++){                
                 if (j < inputGroup.length) {
                     string += `${inputGroup[j-1]} , `
@@ -100,9 +102,11 @@ function showResult() {
             document.getElementById("output2").classList.remove("visible")
             document.getElementById("output2").classList.add("invisible")   
         }        
-    }       
-}
-// number_many = [2,3,5,7,210]
-// console.log(euclid_gcd_many(number_many))
-// console.log(euclid_lcm_many(number_many))
-
+    }
+    if (count < inputGroup.length) {
+        document.getElementById("output1").classList.remove("visible")
+        document.getElementById("output1").classList.add("invisible")   
+        document.getElementById("output2").classList.remove("visible")
+        document.getElementById("output2").classList.add("invisible")  
+    }  
+}    
